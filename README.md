@@ -14,12 +14,11 @@
    - Vercel auto-detects Next.js.
 
 ## 📂 Project Structure
-- `/pages/index.js` → Landing page.
+- `/pages/index.js` → Landing page (all sections + News carousel with Microlink).
 - `/pages/_app.js` → Loads global CSS.
-- `/styles/globals.css` → Styles.
-- `/public/assets/` → Place your images here (bracelet.png, disaster.jpg, etc).
+- `/styles/globals.css` → Styles (responsive typography, carousel, etc).
+- `/public/assets/` → Place your images here (bracelet.png, disaster.jpg, usecase-*.jpg).
 
 ## ✏️ Customization
 - Replace placeholder images in `/public/assets/`.
-- Update `newsItems` in `index.js` with your article links + images.
-- Edit texts in `index.js` sections.
+- Update texts in `index.js` sections as needed.

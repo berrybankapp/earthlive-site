@@ -1,12 +1,19 @@
 import Head from 'next/head'
+import Microlink from '@microlink/react'
 import Carousel from 'react-multi-carousel'
 import 'react-multi-carousel/lib/styles.css'
 
 export default function Home() {
-  const newsItems = [
-    { title: "Viasat Education Grant", url: "https://www.viasat.com/news/latest-news/corporate/2025/enrique-gomez-jackson-wins-education-grant-for--earthlive---a-sm/", img: "/assets/viasat.png" },
-    { title: "Webwire Coverage", url: "https://www.webwire.com/ViewPressRel.asp?aId=342612", img: "/assets/webwire.png" },
-    { title: "Times of San Diego", url: "https://timesofsandiego.com/education/2025/08/16/stem-student-wins-viasat-grant-for-disaster-response-device/", img: "/assets/times.png" }
+  const urls = [
+    "https://www.viasat.com/news/latest-news/corporate/2025/enrique-gomez-jackson-wins-education-grant-for--earthlive---a-sm/",
+    "https://www.webwire.com/ViewPressRel.asp?aId=342612",
+    "https://timesofsandiego.com/education/2025/08/16/stem-student-wins-viasat-grant-for-disaster-response-device/",
+    "https://philanthropynewsdigest.org/news/other-sources/article/?id=16364886&title=STEM-student-wins-Viasat-grant-for-disaster-response-device",
+    "https://comunidadinformativa.com.mx/tecnologia/5714/joven-mexicano-desarrolla-pulsera-satelital-que-puede-salvar-vidas-y-promover-la-sustentabilidad/",
+    "https://www.msn.com/en-us/news/technology/stem-student-wins-viasat-grant-for-disaster-response-device/ar-AA1KE4OY",
+    "https://www.linkedin.com/feed/update/activity:7362863359114760193",
+    "https://www.facebook.com/share/p/1ECDFFkAP3/?mibextid=wwXIfr",
+    "https://www.facebook.com/share/p/1GbyLHSEbE/"
   ]
 
   const responsive = {
@@ -63,28 +70,43 @@ export default function Home() {
       <section className="comparison gray-bg">
         <h2>Why Earthlive vs. Others</h2>
         <table>
+          <thead>
+            <tr><th>Feature</th><th>Smartwatches / GPS Devices</th><th>Earthlive Bracelet</th></tr>
+          </thead>
           <tbody>
             <tr><td>Connectivity</td><td>Cellular/Wi-Fi (fails in disasters)</td><td className="highlight">Direct-to-Satellite</td></tr>
             <tr><td>Cost</td><td>$350 unit + $8.99/month</td><td className="highlight">$25 unit + $2.99/month</td></tr>
+            <tr><td>Purpose</td><td>Tourism, fitness</td><td className="highlight">Disaster survival & equity</td></tr>
+            <tr><td>Waterproof</td><td>Limited</td><td className="highlight">✅ Yes</td></tr>
+            <tr><td>Data Security</td><td>Mixed</td><td className="highlight">End-to-end encrypted</td></tr>
           </tbody>
         </table>
       </section>
 
       <section className="news teal-bg">
         <h2>News & Media</h2>
-        <Carousel responsive={responsive}>
-          {newsItems.map((item, i) => (
-            <div key={i} className="news-card">
-              <a href={item.url} target="_blank">
-                <img src={item.img} alt={item.title} />
-                <h3>{item.title}</h3>
-              </a>
+        <Carousel 
+          responsive={responsive} 
+          autoPlay={true} 
+          autoPlaySpeed={5000} 
+          infinite={true}
+          showDots={true}
+          arrows={true}
+          customLeftArrow={<button className="arrow left">‹</button>}
+          customRightArrow={<button className="arrow right">›</button>}
+        >
+          {urls.map((url, idx) => (
+            <div key={idx} className="news-card">
+              <Microlink url={url} media="image" size="normal" style={{ maxWidth: '320px', margin: '0 auto' }} />
             </div>
           ))}
         </Carousel>
       </section>
 
-      <footer><p>info@earthlive.space</p><p>© Earthlive 2025</p></footer>
+      <footer className="footer">
+        <a href="mailto:egomezjackson@gmail.com" className="btn secondary">Contact Us</a>
+        <p>© Earthlive 2025</p>
+      </footer>
     </div>
   )
 }
