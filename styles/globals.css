@@ -1,40 +1,14 @@
-/* Global Styles for Earthlive React */
-body { font-family: 'Segoe UI', Arial, sans-serif; margin: 0; padding: 0; color: #333; background: #fff; line-height: 1.6; }
-h1, h2, h3 { margin: 0.5em 0; font-weight: 700; }
-p { margin: 0.5em 0 1.5em; }
-.white-bg { background: #fff; }
-.gray-bg { background: #f7f9fa; }
-.teal-bg { background: #176b87; color: white; }
-.hero { background: linear-gradient(to right, #0b1f3a, #176b87); color: white; text-align: center; padding: 6em 1.5em; }
-.hero h1 { font-size: 3em; margin-bottom: 0.3em; }
-.hero p { font-size: 1.25em; max-width: 700px; margin: 1em auto; }
-.cta-buttons { margin-top: 1.5em; display: flex; justify-content: center; gap: 1em; flex-wrap: wrap; }
-.btn { text-decoration: none; padding: 0.9em 1.6em; border-radius: 8px; font-weight: 600; transition: all 0.2s ease; display: inline-block; }
-.btn.primary { background: #f7941d; color: white; } .btn.primary:hover { background: #e37e0d; }
-.btn.secondary { background: white; color: #176b87; border: 2px solid #176b87; } .btn.secondary:hover { background: #176b87; color: white; }
-section { padding: 5em 2em; text-align: center; }
-section h2 { font-size: 2.2em; margin-bottom: 0.8em; color: #0b1f3a; }
-section img { max-width: 600px; width: 100%; border-radius: 16px; margin-top: 1.5em; box-shadow: 0 6px 16px rgba(0,0,0,0.1); }
-.solution-content { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 3em; margin-top: 2em; }
-.solution-content ul { list-style: none; padding: 0; text-align: left; font-size: 1.1em; }
-.solution-content li { margin: 0.6em 0; }
-.steps { display: flex; flex-wrap: wrap; justify-content: center; gap: 2em; margin-top: 2em; }
-.step { background: white; padding: 2em; border-radius: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); flex: 1 1 250px; max-width: 300px; }
-.step h3 { color: #176b87; margin-bottom: 0.5em; }
-.emoji-list { list-style: none; padding: 0; margin: 2em auto; max-width: 400px; font-size: 1.2em; text-align: left; }
-.emoji-list li { margin: 0.5em 0; }
-.impact h2 { color: white; }
-.impact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5em; margin-top: 2em; }
-.impact-card { background: white; color: #176b87; padding: 2em; border-radius: 16px; font-weight: 600; box-shadow: 0 6px 16px rgba(0,0,0,0.15); transition: transform 0.2s ease; }
-.impact-card:hover { transform: translateY(-6px); }
-.comparison table { width: 100%; border-collapse: collapse; margin-top: 2em; box-shadow: 0 4px 12px rgba(0,0,0,0.08); border-radius: 12px; overflow: hidden; }
-.comparison th, .comparison td { padding: 1em; border: 1px solid #ddd; }
-.comparison th { background: #176b87; color: white; font-weight: 600; }
-.comparison .highlight { color: #176b87; font-weight: bold; }
-.cta { text-align: center; padding: 5em 2em; }
-.cta h2 { color: white; }
-.cta p { max-width: 600px; margin: 1em auto 2em; }
-.cta .btn { font-size: 1.2em; }
-.news .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5em; margin-top: 2em; }
-footer { background: #0b1f3a; color: white; padding: 2em; text-align: center; font-size: 0.9em; }
-footer p { margin: 0.5em 0; }
+body{font-family:'Segoe UI',sans-serif;margin:0;padding:0;color:#333;line-height:1.6;}
+h1{font-size:clamp(2rem,5vw,3.5rem);}h2{font-size:clamp(1.5rem,3vw,2.5rem);}p{font-size:clamp(1rem,1.5vw,1.25rem);max-width:800px;margin:0 auto 1.5em;}
+.hero{background:linear-gradient(to right,#0b1f3a,#176b87);color:white;text-align:center;padding:6em 1.5em;}
+.cta-buttons{display:flex;justify-content:center;gap:1em;flex-wrap:wrap;}
+.btn{padding:0.9em 1.6em;border-radius:8px;text-decoration:none;font-weight:600;}
+.btn.primary{background:#f7941d;color:white;}.btn.primary:hover{background:#e37e0d;}
+.btn.secondary{background:white;color:#176b87;border:2px solid #176b87;}
+section{padding:5em 2em;text-align:center;}
+.solution-content img{max-width:300px;height:auto;}
+.use-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.5em;margin-top:2em;}
+.use-card{background:white;border-radius:12px;box-shadow:0 4px 12px rgba(0,0,0,0.08);padding:1em;}
+.use-card img{width:100%;border-radius:8px;}
+.news-card{background:white;border-radius:12px;overflow:hidden;box-shadow:0 4px 12px rgba(0,0,0,0.08);margin:0.5em;}
+.news-card img{width:100%;height:150px;object-fit:cover;}
