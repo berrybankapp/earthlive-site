@@ -14,7 +14,6 @@ export default function Home() {
     }
     window.addEventListener('scroll', handleScroll)
 
-    // Scroll-triggered animations
     const io = new IntersectionObserver((entries, observer) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -52,7 +51,10 @@ export default function Home() {
 
   return (
     <div>
-      <Head><title>Earthlive - Locate. Identify. Save Lives.</title></Head>
+      <Head>
+        <title>Earthlive - Locate. Identify. Save Lives.</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      </Head>
 
       <nav className={`navbar ${scrolled ? 'scrolled' : 'top'}`}>
         <div className="logo">Earthlive</div>
@@ -75,25 +77,25 @@ export default function Home() {
       </header>
 
       {/* Problem Section */}
-      <section className="problem white-bg split animate-on-scroll">
-        <div className="split-text animate-left">
+      <section className="problem white-bg split">
+        <div className="split-text animate-on-scroll animate-left">
           <h2>The Problem</h2>
           <p>
             Every year, millions go missing in natural disasters. Phones, apps, and radios often fail when 
             power lines are down and infrastructure is destroyed. Rescue teams lose valuable time — and people lose their lives.
           </p>
         </div>
-        <div className="split-image animate-right">
+        <div className="split-image animate-on-scroll animate-right">
           <img src="/assets/disaster.jpg" alt="Disaster scene" />
         </div>
       </section>
 
       {/* Solution Section */}
-      <section className="solution gray-bg split animate-on-scroll" id="solution">
-        <div className="split-image animate-zoom">
+      <section className="solution gray-bg split" id="solution">
+        <div className="split-image animate-on-scroll animate-zoom">
           <img src="/assets/bracelet.png" alt="Bracelet mockup" />
         </div>
-        <div className="split-text animate-right">
+        <div className="split-text animate-on-scroll animate-right">
           <h2>The Solution — Earthlive Bracelet</h2>
           <ul>
             <li>🌐 Direct-to-Satellite Connectivity</li>
