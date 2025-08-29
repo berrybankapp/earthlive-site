@@ -1,9 +1,21 @@
+import { useState, useEffect } from 'react'
 import Head from 'next/head'
 import Microlink from '@microlink/react'
 import Carousel from 'react-multi-carousel'
 import 'react-multi-carousel/lib/styles.css'
 
 export default function Home() {
+  const [scrolled, setScrolled] = useState(false)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const heroHeight = document.querySelector('.hero')?.offsetHeight || 200
+      setScrolled(window.scrollY > heroHeight - 80)
+    }
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
   const urls = [
     "https://www.viasat.com/news/latest-news/corporate/2025/enrique-gomez-jackson-wins-education-grant-for--earthlive---a-sm/",
     "https://www.webwire.com/ViewPressRel.asp?aId=342612",
@@ -26,12 +38,22 @@ export default function Home() {
     <div>
       <Head><title>Earthlive - Locate. Identify. Save Lives.</title></Head>
 
+      <nav className={`navbar ${scrolled ? 'scrolled' : 'top'}`}>
+        <div className="logo">Earthlive</div>
+      </nav>
+
       <header className="hero">
         <h1>Locate. Identify. Save Lives.</h1>
         <p>Earthlive is a disaster-response bracelet that connects victims with emergency responders — even when all networks fail.</p>
-        <div className="cta-buttons">
-          <a href="https://docs.google.com/forms/d/e/1FAIpQLSe56sOJqEZ1Rsglvq-2d92EmjPbdfxenOXitxruiGu0ojKzIA/viewform?usp=header" target="_blank" className="btn primary">Pre-Order</a>
-          <a href="#solution" className="btn secondary">Learn More</a>
+        <div className="cta-container">
+          <a 
+            id="cta-button"
+            href="https://docs.google.com/forms/d/e/1FAIpQLSe56sOJqEZ1Rsglvq-2d92EmjPbdfxenOXitxruiGu0ojKzIA/viewform?usp=header" 
+            target="_blank" 
+            className={`btn primary ${scrolled ? 'to-nav' : ''}`}
+          >
+            Pre-Order
+          </a>
         </div>
       </header>
 
