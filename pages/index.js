@@ -9,11 +9,27 @@ export default function Home() {
 
   useEffect(() => {
     const handleScroll = () => {
-      const heroHeight = document.querySelector('.hero')?.offsetHeight || 200
-      setScrolled(window.scrollY > heroHeight - 80)
+      const heroHeight = document.querySelector('.hero')?.offsetHeight || window.innerHeight
+      setScrolled(window.scrollY > heroHeight * 0.6)
     }
     window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
+
+    // Scroll-triggered animations
+    const io = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view')
+          observer.unobserve(entry.target)
+        }
+      })
+    }, { threshold: 0.25 })
+
+    document.querySelectorAll('.animate-on-scroll').forEach(el => io.observe(el))
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+      io.disconnect()
+    }
   }, [])
 
   const urls = [
@@ -58,18 +74,27 @@ export default function Home() {
         </div>
       </header>
 
-      {/* Problem */}
-      <section className="problem white-bg">
-        <h2>The Problem</h2>
-        <p>Every year, millions go missing in natural disasters. Phones, apps, and radios often fail when power lines are down and infrastructure is destroyed. Rescue teams lose valuable time — and people lose their lives.</p>
-        <img src="/assets/disaster.jpg" alt="Disaster scene" />
+      {/* Problem Section */}
+      <section className="problem white-bg split animate-on-scroll">
+        <div className="split-text">
+          <h2>The Problem</h2>
+          <p>
+            Every year, millions go missing in natural disasters. Phones, apps, and radios often fail when 
+            power lines are down and infrastructure is destroyed. Rescue teams lose valuable time — and people lose their lives.
+          </p>
+        </div>
+        <div className="split-image">
+          <img src="/assets/disaster.jpg" alt="Disaster scene" />
+        </div>
       </section>
 
-      {/* Solution */}
-      <section className="solution gray-bg" id="solution">
-        <h2>The Solution — Earthlive Bracelet</h2>
-        <div className="solution-content">
+      {/* Solution Section */}
+      <section className="solution gray-bg split reverse animate-on-scroll" id="solution">
+        <div className="split-image">
           <img src="/assets/bracelet.png" alt="Bracelet mockup" />
+        </div>
+        <div className="split-text">
+          <h2>The Solution — Earthlive Bracelet</h2>
           <ul>
             <li>🌐 Direct-to-Satellite Connectivity</li>
             <li>📍 Real-Time Location Sharing</li>
@@ -93,8 +118,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Impact */}
-      <section className="impact gray-bg">
+      {/* Impact Section */}
+      <section className="impact gray-bg animate-on-scroll">
         <h2>Impact of Wearing Earthlive</h2>
         <div className="impact-grid">
           <div className="impact-card">
@@ -116,8 +141,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Comparison */}
-      <section className="comparison white-bg">
+      {/* Comparison Section */}
+      <section className="comparison white-bg animate-on-scroll">
         <h2>Why Earthlive vs. Others</h2>
         <table>
           <thead>
@@ -133,8 +158,8 @@ export default function Home() {
         </table>
       </section>
 
-      {/* News */}
-      <section className="news teal-bg">
+      {/* News Section */}
+      <section className="news teal-bg animate-on-scroll">
         <h2>News & Media</h2>
         <Carousel 
           responsive={responsive} 
@@ -155,7 +180,7 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="footer">
+      <footer className="footer animate-on-scroll">
         <a href="mailto:egomezjackson@gmail.com" className="btn secondary">Contact Us</a>
         <p>© Earthlive 2025</p>
       </footer>
