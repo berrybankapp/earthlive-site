@@ -22,7 +22,7 @@ export default function Home() {
           observer.unobserve(entry.target)
         }
       })
-    }, { threshold: 0.25 })
+    }, { threshold: 0.2 })
 
     document.querySelectorAll('.animate-on-scroll').forEach(el => io.observe(el))
 
@@ -76,24 +76,24 @@ export default function Home() {
 
       {/* Problem Section */}
       <section className="problem white-bg split animate-on-scroll">
-        <div className="split-text">
+        <div className="split-text animate-left">
           <h2>The Problem</h2>
           <p>
             Every year, millions go missing in natural disasters. Phones, apps, and radios often fail when 
             power lines are down and infrastructure is destroyed. Rescue teams lose valuable time — and people lose their lives.
           </p>
         </div>
-        <div className="split-image">
+        <div className="split-image animate-right">
           <img src="/assets/disaster.jpg" alt="Disaster scene" />
         </div>
       </section>
 
       {/* Solution Section */}
-      <section className="solution gray-bg split reverse animate-on-scroll" id="solution">
-        <div className="split-image">
+      <section className="solution gray-bg split animate-on-scroll" id="solution">
+        <div className="split-image animate-zoom">
           <img src="/assets/bracelet.png" alt="Bracelet mockup" />
         </div>
-        <div className="split-text">
+        <div className="split-text animate-right">
           <h2>The Solution — Earthlive Bracelet</h2>
           <ul>
             <li>🌐 Direct-to-Satellite Connectivity</li>
@@ -118,7 +118,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Impact Section */}
+      {/* Impact */}
       <section className="impact gray-bg animate-on-scroll">
         <h2>Impact of Wearing Earthlive</h2>
         <div className="impact-grid">
@@ -141,7 +141,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Comparison Section */}
+      {/* Comparison */}
       <section className="comparison white-bg animate-on-scroll">
         <h2>Why Earthlive vs. Others</h2>
         <table>
@@ -158,7 +158,7 @@ export default function Home() {
         </table>
       </section>
 
-      {/* News Section */}
+      {/* News */}
       <section className="news teal-bg animate-on-scroll">
         <h2>News & Media</h2>
         <Carousel 
@@ -179,7 +179,6 @@ export default function Home() {
         </Carousel>
       </section>
 
-      {/* Footer */}
       <footer className="footer animate-on-scroll">
         <a href="mailto:egomezjackson@gmail.com" className="btn secondary">Contact Us</a>
         <p>© Earthlive 2025</p>
