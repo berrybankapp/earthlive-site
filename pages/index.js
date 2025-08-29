@@ -61,9 +61,13 @@ export default function Home() {
         <div className="nav-btn-slot"></div>
       </nav>
 
+      {/* Hero Section */}
       <header className="hero">
-        <h1>Locate. Identify. Save Lives.</h1>
-        <p>Earthlive is a disaster-response bracelet that connects victims with emergency responders — even when all networks fail.</p>
+        <h1>Locate. Identify. <span className="highlight">Save Lives</span>.</h1>
+        <p>
+          Earthlive is a disaster-response bracelet that connects victims with emergency responders —
+          even when all networks fail.
+        </p>
         <div className="cta-container">
           <a 
             id="cta-button"
@@ -81,8 +85,9 @@ export default function Home() {
         <div className="split-text animate-on-scroll animate-left">
           <h2>The Problem</h2>
           <p>
-            Every year, millions go missing in natural disasters. Phones, apps, and radios often fail when 
-            power lines are down and infrastructure is destroyed. Rescue teams lose valuable time — and people lose their lives.
+            Every year, <span className="highlight">millions go missing</span> in natural disasters. 
+            Phones, apps, and radios often fail when power lines are down and infrastructure is destroyed. 
+            Rescue teams lose <span className="highlight">valuable time</span> — and people lose their lives.
           </p>
         </div>
         <div className="split-image animate-on-scroll animate-right">
@@ -98,12 +103,12 @@ export default function Home() {
         <div className="split-text animate-on-scroll animate-right">
           <h2>The Solution — Earthlive Bracelet</h2>
           <ul>
-            <li>🌐 Direct-to-Satellite Connectivity</li>
+            <li>🌐 <span className="highlight">Direct-to-Satellite Connectivity</span></li>
             <li>📍 Real-Time Location Sharing</li>
-            <li>🔐 Encrypted Personal ID Data</li>
+            <li>🔐 <span className="highlight">Encrypted Personal ID Data</span></li>
             <li>💧 Waterproof, Recycled Materials</li>
             <li>🔋 Rechargeable, Long-Lasting Battery</li>
-            <li>🌞 Future-ready: Solar & Kinetic Charging</li>
+            <li>🌞 <span className="highlight">Future-ready</span>: Solar & Kinetic Charging</li>
           </ul>
         </div>
       </section>
@@ -143,7 +148,6 @@ export default function Home() {
         </div>
       </section>
 
-
       {/* Comparison */}
       <section className="comparison white-bg animate-on-scroll">
         <h2>Why Earthlive vs. Others</h2>
@@ -182,6 +186,7 @@ export default function Home() {
         </Carousel>
       </section>
 
+      {/* Footer */}
       <footer className="footer animate-on-scroll">
         <a href="mailto:egomezjackson@gmail.com" className="btn secondary">Contact Us</a>
         <p>© Earthlive 2025</p>
