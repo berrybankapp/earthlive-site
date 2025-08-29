@@ -49,12 +49,52 @@ section { padding:5em 2em; }
 .gray-bg { background:#f7f7f7; }
 .teal-bg { background:#e8f4f8; }
 
-/* Split Layout */
-.split, .reverse { display:flex; align-items:center; gap:2em; }
-.reverse { flex-direction:row-reverse; }
-.split-text, .split-image { flex:1; }
-.split-image img { width:100%; border-radius:12px; }
-@media (max-width:768px){ .split,.reverse{flex-direction:column;} }
+/* Split Layout (Problem & Solution) */
+.split {
+  display: flex;
+  align-items: center;
+  gap: 2em;
+}
+.split-text, .split-image {
+  flex: 1;
+}
+.split-image img {
+  width: 100%;
+  border-radius: 12px;
+}
+@media (max-width: 768px) {
+  .split {
+    flex-direction: column;
+  }
+}
+
+/* Problem & Solution Animations */
+.animate-left {
+  opacity: 0;
+  transform: translateX(-40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.animate-right {
+  opacity: 0;
+  transform: translateX(40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.animate-zoom {
+  opacity: 0;
+  transform: scale(0.95);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.in-view.animate-left,
+.in-view.animate-right {
+  opacity: 1;
+  transform: translateX(0);
+}
+.in-view.animate-zoom {
+  opacity: 1;
+  transform: scale(1);
+}
+
+
 
 /* Use Cases */
 .use-grid { display:grid; gap:1.5em; margin-top:2em; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); }
