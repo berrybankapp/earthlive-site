@@ -40,6 +40,7 @@ export default function Home() {
 
       <nav className={`navbar ${scrolled ? 'scrolled' : 'top'}`}>
         <div className="logo">Earthlive</div>
+        <div className="nav-btn-slot"></div>
       </nav>
 
       <header className="hero">
@@ -57,12 +58,14 @@ export default function Home() {
         </div>
       </header>
 
+      {/* Problem */}
       <section className="problem white-bg">
         <h2>The Problem</h2>
         <p>Every year, millions go missing in natural disasters. Phones, apps, and radios often fail when power lines are down and infrastructure is destroyed. Rescue teams lose valuable time — and people lose their lives.</p>
         <img src="/assets/disaster.jpg" alt="Disaster scene" />
       </section>
 
+      {/* Solution */}
       <section className="solution gray-bg" id="solution">
         <h2>The Solution — Earthlive Bracelet</h2>
         <div className="solution-content">
@@ -78,6 +81,7 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Use Cases */}
       <section className="use-cases teal-bg">
         <h2>Use Cases</h2>
         <div className="use-grid">
@@ -89,6 +93,7 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Impact */}
       <section className="impact gray-bg">
         <h2>Impact of Wearing Earthlive</h2>
         <div className="impact-grid">
@@ -111,6 +116,7 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Comparison */}
       <section className="comparison white-bg">
         <h2>Why Earthlive vs. Others</h2>
         <table>
@@ -127,6 +133,7 @@ export default function Home() {
         </table>
       </section>
 
+      {/* News */}
       <section className="news teal-bg">
         <h2>News & Media</h2>
         <Carousel 
@@ -147,6 +154,7 @@ export default function Home() {
         </Carousel>
       </section>
 
+      {/* Footer */}
       <footer className="footer">
         <a href="mailto:egomezjackson@gmail.com" className="btn secondary">Contact Us</a>
         <p>© Earthlive 2025</p>
