@@ -63,7 +63,7 @@ export default function Home() {
 
       {/* Hero Section */}
       <header className="hero">
-        <h1>Locate. Identify. <span className="highlight">Save Lives</span>.</h1>
+        <h1>Locate. Identify. Save Lives.</h1>
         <p>
           Earthlive is a disaster-response bracelet that connects victims with emergency responders —
           even when all networks fail.
@@ -85,9 +85,9 @@ export default function Home() {
         <div className="split-text animate-on-scroll animate-left">
           <h2>The Problem</h2>
           <p>
-            Every year, <span className="highlight">millions go missing</span> in natural disasters. 
+            Every year, millions go missing in natural disasters. 
             Phones, apps, and radios often fail when power lines are down and infrastructure is destroyed. 
-            Rescue teams lose <span className="highlight">valuable time</span> — and people lose their lives.
+            Rescue teams lose valuable time — and people lose their lives.
           </p>
         </div>
         <div className="split-image animate-on-scroll animate-right">
@@ -103,12 +103,12 @@ export default function Home() {
         <div className="split-text animate-on-scroll animate-right">
           <h2>The Solution — Earthlive Bracelet</h2>
           <ul>
-            <li>🌐 <span className="highlight">Direct-to-Satellite Connectivity</span></li>
+            <li>🌐 Direct-to-Satellite Connectivity</li>
             <li>📍 Real-Time Location Sharing</li>
-            <li>🔐 <span className="highlight">Encrypted Personal ID Data</span></li>
+            <li>🔐 Encrypted Personal ID Data</li>
             <li>💧 Waterproof, Recycled Materials</li>
             <li>🔋 Rechargeable, Long-Lasting Battery</li>
-            <li>🌞 <span className="highlight">Future-ready</span>: Solar & Kinetic Charging</li>
+            <li>🌞 Future-ready: Solar & Kinetic Charging</li>
           </ul>
         </div>
       </section>
@@ -130,19 +130,19 @@ export default function Home() {
         <h2>Impact of Wearing Earthlive</h2>
         <div className="impact-grid">
           <div className="impact-card">
-            <h3>⏱ <span className="highlight">Faster Response</span></h3>
+            <h3>⏱ Faster Response</h3>
             <p>Cut rescue time from hours to minutes.</p>
           </div>
           <div className="impact-card">
-            <h3>🌍 <span className="highlight">Wider Reach</span></h3>
+            <h3>🌍 Wider Reach</h3>
             <p>Connects even in areas with zero cell coverage.</p>
           </div>
           <div className="impact-card">
-            <h3>💸 <span className="highlight">Affordable</span></h3>
+            <h3>💸 Affordable</h3>
             <p>Low-cost device accessible to vulnerable groups.</p>
           </div>
           <div className="impact-card">
-            <h3>💚 <span className="highlight">Sustainable</span></h3>
+            <h3>💚 Sustainable</h3>
             <p>Made with recycled and eco-friendly materials.</p>
           </div>
         </div>
@@ -156,11 +156,11 @@ export default function Home() {
             <tr><th>Feature</th><th>Smartwatches / GPS Devices</th><th>Earthlive Bracelet</th></tr>
           </thead>
           <tbody>
-            <tr><td>Connectivity</td><td>Cellular/Wi-Fi (fails in disasters)</td><td className="highlight">Direct-to-Satellite</td></tr>
-            <tr><td>Cost</td><td>$350 unit + $8.99/month</td><td className="highlight">$25 unit + $2.99/month</td></tr>
-            <tr><td>Purpose</td><td>Tourism, fitness</td><td className="highlight">Disaster survival & equity</td></tr>
-            <tr><td>Waterproof</td><td>Limited</td><td className="highlight">✅ Yes</td></tr>
-            <tr><td>Data Security</td><td>Mixed</td><td className="highlight">End-to-end encrypted</td></tr>
+            <tr><td>Connectivity</td><td>Cellular/Wi-Fi (fails in disasters)</td><td>Direct-to-Satellite</td></tr>
+            <tr><td>Cost</td><td>$350 unit + $8.99/month</td><td>$25 unit + $2.99/month</td></tr>
+            <tr><td>Purpose</td><td>Tourism, fitness</td><td>Disaster survival & equity</td></tr>
+            <tr><td>Waterproof</td><td>Limited</td><td>✅ Yes</td></tr>
+            <tr><td>Data Security</td><td>Mixed</td><td>End-to-end encrypted</td></tr>
           </tbody>
         </table>
       </section>
