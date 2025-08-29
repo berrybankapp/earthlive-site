@@ -206,7 +206,13 @@ section { padding: 5em 2em; }
 /* News Carousel */
 .news-card {
   padding: 1em;
-  height: 400px;
+  height: 320px; /* tightened */
+}
+
+/* Carousel Wrapper */
+.react-multi-carousel-list {
+  position: relative; /* ensures arrows are positioned inside */
+  padding-bottom: 40px; /* space for dots */
 }
 
 /* Carousel Arrows */
@@ -219,19 +225,24 @@ section { padding: 5em 2em; }
   font-size: 1.2em;
   cursor: pointer;
   position: absolute;
-  top: 50%;                 /* vertically centered */
+  top: 50%;                     /* center vertically */
   transform: translateY(-50%);
-  z-index: 2;
+  z-index: 5;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.arrow.left { left: -45px; }
-.arrow.right { right: -45px; }
+.arrow.left { left: 10px; }
+.arrow.right { right: 10px; }
 
 /* Carousel Dots */
 .react-multi-carousel-dot-list {
-  margin-top: 0.5em !important;   /* tighten spacing */
+  position: absolute;
+  bottom: 5px;                  /* snug under cards */
+  width: 100%;
+  display: flex !important;
+  justify-content: center;
+  margin: 0 !important;
 }
 .react-multi-carousel-dot button {
   width: 10px;
@@ -241,7 +252,7 @@ section { padding: 5em 2em; }
   background: #ccc;
 }
 .react-multi-carousel-dot--active button {
-  background: #176b87;            /* brand teal */
+  background: #176b87;          /* brand teal */
 }
 
 /* Footer */
