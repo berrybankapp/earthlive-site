@@ -56,7 +56,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="use-cases white-bg">
+      <section className="use-cases teal-bg">
         <h2>Use Cases</h2>
         <div className="use-grid">
           <div className="use-card"><img src="/assets/usecase-disaster.jpg"/><p>Natural Disasters</p></div>
@@ -67,7 +67,29 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="comparison gray-bg">
+      <section className="impact gray-bg">
+        <h2>Impact of Wearing Earthlive</h2>
+        <div className="impact-grid">
+          <div className="impact-card">
+            <h3>⏱ Faster Response</h3>
+            <p>Cut rescue time from hours to minutes.</p>
+          </div>
+          <div className="impact-card">
+            <h3>🌍 Wider Reach</h3>
+            <p>Connects even in areas with zero cell coverage.</p>
+          </div>
+          <div className="impact-card">
+            <h3>💸 Affordable</h3>
+            <p>Low-cost device accessible to vulnerable groups.</p>
+          </div>
+          <div className="impact-card">
+            <h3>💚 Sustainable</h3>
+            <p>Made with recycled and eco-friendly materials.</p>
+          </div>
+        </div>
+      </section>
+
+      <section className="comparison white-bg">
         <h2>Why Earthlive vs. Others</h2>
         <table>
           <thead>
