@@ -125,23 +125,24 @@ export default function Home() {
         <h2>Impact of Wearing Earthlive</h2>
         <div className="impact-grid">
           <div className="impact-card">
-            <h3>⏱ Faster Response</h3>
+            <h3>⏱ <span className="highlight">Faster Response</span></h3>
             <p>Cut rescue time from hours to minutes.</p>
           </div>
           <div className="impact-card">
-            <h3>🌍 Wider Reach</h3>
+            <h3>🌍 <span className="highlight">Wider Reach</span></h3>
             <p>Connects even in areas with zero cell coverage.</p>
           </div>
           <div className="impact-card">
-            <h3>💸 Affordable</h3>
+            <h3>💸 <span className="highlight">Affordable</span></h3>
             <p>Low-cost device accessible to vulnerable groups.</p>
           </div>
           <div className="impact-card">
-            <h3>💚 Sustainable</h3>
+            <h3>💚 <span className="highlight">Sustainable</span></h3>
             <p>Made with recycled and eco-friendly materials.</p>
           </div>
         </div>
       </section>
+
 
       {/* Comparison */}
       <section className="comparison white-bg animate-on-scroll">
