@@ -202,27 +202,47 @@ section { padding: 5em 2em; }
 .comparison td {
   color: #333;
 }
-.comparison .highlight {
-  color: #176b87;
-  font-weight: bold;
-}
 
 /* News Carousel */
-.news-card { padding: 1em; height: 400px; }
+.news-card {
+  padding: 1em;
+  height: 400px;
+}
+
+/* Carousel Arrows */
 .arrow {
   background: rgba(200,200,200,0.8);
   border: none;
   border-radius: 50%;
-  width: 30px;
-  height: 30px;
-  font-size: 1.5em;
+  width: 36px;
+  height: 36px;
+  font-size: 1.2em;
   cursor: pointer;
   position: absolute;
-  top: 40%;
+  top: 50%;                 /* vertically centered */
+  transform: translateY(-50%);
   z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-.arrow.left { left: 10px; }
-.arrow.right { right: 10px; }
+.arrow.left { left: -45px; }
+.arrow.right { right: -45px; }
+
+/* Carousel Dots */
+.react-multi-carousel-dot-list {
+  margin-top: 0.5em !important;   /* tighten spacing */
+}
+.react-multi-carousel-dot button {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: none;
+  background: #ccc;
+}
+.react-multi-carousel-dot--active button {
+  background: #176b87;            /* brand teal */
+}
 
 /* Footer */
 .footer {
