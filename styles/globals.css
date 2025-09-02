@@ -15,6 +15,7 @@ h1, h2, h3, .logo {
 html, body {
   max-width: 100%;
   overflow-x: hidden;
+  scroll-behavior: smooth;
 }
 
 /* Animations */
@@ -79,11 +80,11 @@ html, body {
   transition: background .4s ease, color .4s ease, opacity .4s ease;
 }
 .nav-btn-slot {
-  width: 160px;
-  height: 40px;
+  width: auto;
   display: flex;
   justify-content: flex-end;
   align-items: center;
+  padding-left: 1em;
 }
 .navbar.top { background: transparent; }
 .navbar.top .logo { color: white; }
@@ -107,13 +108,14 @@ html, body {
 .hero {
   position: relative;
   width: 100%;
-  min-height: 90vh;
+  min-height: 100vh;
   padding: clamp(3em,6vw,8em) 1.5em;
   color: white;
   background: url('/assets/hero.png') no-repeat center center/cover;
   display: flex; flex-direction: column;
   justify-content: center; align-items: center;
   text-align: center;
+  box-sizing: border-box;
 }
 .hero::before {
   content: '';
@@ -139,19 +141,17 @@ html, body {
   margin: 0 auto 1.2em;
   opacity: .98;
 }
-/* Mobile tweak */
+/* Mobile tweak: shrink hero height instead of black bars */
 @media(max-width:600px){
   .hero {
-    background-size: contain;
-    background-color: #000;
+    min-height: 70vh; /* shrink height */
+    padding: 2em 1em;
+    background-size: cover;
   }
 }
 
 /* CTA Button */
-.cta-container {
-  position: relative;
-  height: 80px;
-}
+.cta-container { position: relative; height: 80px; }
 #cta-button {
   font-size: clamp(.9rem,2vw,1rem);
   padding: .6em 1.2em;
@@ -227,14 +227,20 @@ section {
 }
 
 /* Comparison */
+.comparison {
+  overflow-x: auto;
+  padding: 0 1em;
+}
 .comparison table {
   width: 100%;
   border-collapse: collapse;
   margin-top: 2em;
+  min-width: 500px;
 }
 .comparison th, .comparison td {
   padding: 1em;
   border: 1px solid #ddd;
+  text-align: center;
 }
 .comparison th {
   background: #176b87;
@@ -244,10 +250,7 @@ section {
 
 /* News Carousel */
 .news-card { padding: 1em; height: 320px; }
-.react-multi-carousel-list {
-  position: relative;
-  padding-bottom: 40px;
-}
+.react-multi-carousel-list { position: relative; padding-bottom: 40px; }
 .arrow {
   background: rgba(200,200,200,.8);
   border: none;
@@ -255,13 +258,10 @@ section {
   width: 36px; height: 36px;
   font-size: 1.2em;
   cursor: pointer;
-  position: absolute;
-  top: 50%;
+  position: absolute; top: 50%;
   transform: translateY(-50%);
   z-index: 5;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: flex; align-items: center; justify-content: center;
 }
 .arrow.left { left: 10px; }
 .arrow.right { right: 10px; }
@@ -279,15 +279,10 @@ section {
   border: none;
   background: #ccc;
 }
-.react-multi-carousel-dot--active button {
-  background: #176b87;
-}
+.react-multi-carousel-dot--active button { background: #176b87; }
 
 /* Footer */
-.footer {
-  background: #fff;
-  padding: 2em;
-}
+.footer { background: #fff; padding: 2em; }
 .btn {
   padding: .9em 1.6em;
   border-radius: 8px;
