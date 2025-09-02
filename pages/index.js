@@ -45,8 +45,8 @@ export default function Home() {
 
   const responsive = {
     desktop: { breakpoint: { max: 3000, min: 1024 }, items: 3 },
-    tablet: { breakpoint: { max: 1024, min: 464 }, items: 2 },
-    mobile: { breakpoint: { max: 464, min: 0 }, items: 1 }
+    tablet:  { breakpoint: { max: 1024, min: 464 }, items: 2 },
+    mobile:  { breakpoint: { max: 464, min: 0 }, items: 1 }
   }
 
   return (
@@ -61,7 +61,7 @@ export default function Home() {
         <div className="nav-btn-slot"></div>
       </nav>
 
-      {/* Hero Section */}
+      {/* Hero Section (background set via CSS) */}
       <header className="hero">
         <h1>Locate. Identify. Save Lives.</h1>
         <p>
@@ -69,10 +69,10 @@ export default function Home() {
           even when all networks fail.
         </p>
         <div className="cta-container">
-          <a 
+          <a
             id="cta-button"
-            href="https://docs.google.com/forms/d/e/1FAIpQLSe56sOJqEZ1Rsglvq-2d92EmjPbdfxenOXitxruiGu0ojKzIA/viewform?usp=header" 
-            target="_blank" 
+            href="https://docs.google.com/forms/d/e/1FAIpQLSe56sOJqEZ1Rsglvq-2d92EmjPbdfxenOXitxruiGu0ojKzIA/viewform?usp=header"
+            target="_blank"
             className={`btn primary ${scrolled ? 'to-nav' : ''}`}
           >
             Pre-Order
@@ -80,13 +80,13 @@ export default function Home() {
         </div>
       </header>
 
-      {/* Problem Section */}
+      {/* Problem */}
       <section className="problem white-bg split">
         <div className="split-text animate-on-scroll animate-left">
           <h2>The Problem</h2>
           <p>
-            Every year, millions go missing in natural disasters. 
-            Phones, apps, and radios often fail when power lines are down and infrastructure is destroyed. 
+            Every year, millions go missing in natural disasters.
+            Phones, apps, and radios often fail when power lines are down and infrastructure is destroyed.
             Rescue teams lose valuable time — and people lose their lives.
           </p>
         </div>
@@ -95,7 +95,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Solution Section */}
+      {/* Solution */}
       <section className="solution gray-bg split" id="solution">
         <div className="split-image animate-on-scroll animate-zoom">
           <img src="/assets/bracelet.png" alt="Bracelet mockup" />
@@ -117,11 +117,11 @@ export default function Home() {
       <section className="use-cases teal-bg">
         <h2>Use Cases</h2>
         <div className="use-grid">
-          <div className="use-card"><img src="/assets/usecase-disaster.png"/><p>Natural Disasters</p></div>
-          <div className="use-card"><img src="/assets/usecase-tourism.png"/><p>Tourism & Adventure Travel</p></div>
-          <div className="use-card"><img src="/assets/usecase-schools.png"/><p>Schools & Summer Camps</p></div>
-          <div className="use-card"><img src="/assets/usecase-aid.png"/><p>Humanitarian Aid</p></div>
-          <div className="use-card"><img src="/assets/usecase-events.png"/><p>Events & Future Uses</p></div>
+          <div className="use-card"><img src="/assets/usecase-disaster.jpg" alt="Natural Disasters"/><p>Natural Disasters</p></div>
+          <div className="use-card"><img src="/assets/usecase-tourism.jpg" alt="Tourism & Adventure Travel"/><p>Tourism & Adventure Travel</p></div>
+          <div className="use-card"><img src="/assets/usecase-schools.jpg" alt="Schools & Summer Camps"/><p>Schools & Summer Camps</p></div>
+          <div className="use-card"><img src="/assets/usecase-aid.jpg" alt="Humanitarian Aid"/><p>Humanitarian Aid</p></div>
+          <div className="use-card"><img src="/assets/usecase-events.jpg" alt="Events & Future Uses"/><p>Events & Future Uses</p></div>
         </div>
       </section>
 
@@ -172,10 +172,10 @@ export default function Home() {
       {/* News */}
       <section className="news teal-bg animate-on-scroll">
         <h2>News & Media</h2>
-        <Carousel 
-          responsive={responsive} 
-          autoPlay={true} 
-          autoPlaySpeed={5000} 
+        <Carousel
+          responsive={responsive}
+          autoPlay={true}
+          autoPlaySpeed={5000}
           infinite={true}
           showDots={true}
           arrows={true}
@@ -192,9 +192,9 @@ export default function Home() {
 
       {/* Footer */}
       <footer className="footer animate-on-scroll">
-        <a 
-          href="https://docs.google.com/forms/d/e/1FAIpQLSfjSiDoSVVpTVQTpgmicn-b3EK83gdJEMI7zUkUcwNabya_GA/viewform?usp=header" 
-          target="_blank" 
+        <a
+          href="https://docs.google.com/forms/d/e/1FAIpQLSfjSiDoSVVpTVQTpgmicn-b3EK83gdJEMI7zUkUcwNabya_GA/viewform?usp=header"
+          target="_blank"
           className="btn secondary"
         >
           Contact Us
