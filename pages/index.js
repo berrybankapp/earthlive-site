@@ -1,8 +1,45 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import Head from 'next/head'
 import Microlink from '@microlink/react'
 import Carousel from 'react-multi-carousel'
 import 'react-multi-carousel/lib/styles.css'
+
+// CountUp component with comma formatting
+function CountUp({ end, suffix = '', duration = 2000 }) {
+  const [count, setCount] = useState(0)
+  const ref = useRef()
+  const started = useRef(false)
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && !started.current) {
+            started.current = true
+            let startTime = null
+            const step = (timestamp) => {
+              if (!startTime) startTime = timestamp
+              const progress = Math.min((timestamp - startTime) / duration, 1)
+              setCount(Math.floor(progress * end))
+              if (progress < 1) requestAnimationFrame(step)
+            }
+            requestAnimationFrame(step)
+          }
+        })
+      },
+      { threshold: 0.4 }
+    )
+    if (ref.current) observer.observe(ref.current)
+    return () => observer.disconnect()
+  }, [end, duration])
+
+  return (
+    <strong ref={ref}>
+      {count.toLocaleString()}
+      {suffix}
+    </strong>
+  )
+}
 
 export default function Home() {
   const [scrolled, setScrolled] = useState(false)
@@ -20,6 +57,26 @@ export default function Home() {
     }
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
+  // Animate-on-scroll system
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in-view')
+          }
+        })
+      },
+      { threshold: 0.2 }
+    )
+
+    document.querySelectorAll('.animate-on-scroll').forEach((el) => {
+      observer.observe(el)
+    })
+
+    return () => observer.disconnect()
   }, [])
 
   const urls = [
@@ -55,7 +112,10 @@ export default function Home() {
       {/* Hero */}
       <header className="hero">
         <h1>Locate. Identify. Save Lives.</h1>
-        <p>Earthlive is a disaster-response bracelet that connects victims with emergency responders — even when all networks fail.</p>
+        <p>
+          Earthlive is a disaster-response bracelet that connects victims with emergency responders —
+          even when all networks fail.
+        </p>
         <div className="cta-container">
           <a
             id="cta-button"
@@ -88,7 +148,7 @@ export default function Home() {
         <div className="split-image animate-on-scroll animate-zoom">
           <img src="/assets/bracelet.png" alt="Bracelet mockup" />
         </div>
-        <div className="split-text animate-on-scroll animate-right">
+        <div className="split-text animate-on-scroll animate-right split-text">
           <h2>The Solution — Earthlive Bracelet</h2>
           <ul>
             <li>🌐 Direct-to-Satellite Connectivity</li>
@@ -105,11 +165,26 @@ export default function Home() {
       <section className="use-cases teal-bg">
         <h2>Use Cases</h2>
         <div className="use-grid">
-          <div className="use-card"><img src="/assets/usecase-disaster.jpg" alt="Natural Disasters"/><p>Natural Disasters</p></div>
-          <div className="use-card"><img src="/assets/usecase-tourism.jpg" alt="Tourism & Adventure Travel"/><p>Tourism & Adventure Travel</p></div>
-          <div className="use-card"><img src="/assets/usecase-schools.jpg" alt="Schools & Summer Camps"/><p>Schools & Summer Camps</p></div>
-          <div className="use-card"><img src="/assets/usecase-aid.jpg" alt="Humanitarian Aid"/><p>Humanitarian Aid</p></div>
-          <div className="use-card"><img src="/assets/usecase-events.jpg" alt="Events & Future Uses"/><p>Events & Future Uses</p></div>
+          <div className="use-card">
+            <img src="/assets/usecase-disaster.png" alt="Natural Disasters"/>
+            <p>Natural Disasters</p>
+          </div>
+          <div className="use-card">
+            <img src="/assets/usecase-tourism.png" alt="Tourism & Adventure Travel"/>
+            <p>Tourism & Adventure Travel</p>
+          </div>
+          <div className="use-card">
+            <img src="/assets/usecase-schools.png" alt="Schools & Summer Camps"/>
+            <p>Schools & Summer Camps</p>
+          </div>
+          <div className="use-card">
+            <img src="/assets/usecase-aid.png" alt="Humanitarian Aid"/>
+            <p>Humanitarian Aid</p>
+          </div>
+          <div className="use-card">
+            <img src="/assets/usecase-events.png" alt="Events & Future Uses"/>
+            <p>Events & Future Uses</p>
+          </div>
         </div>
       </section>
 
@@ -120,22 +195,22 @@ export default function Home() {
           <div className="impact-card">
             <h3>⏱ Faster Response</h3>
             <p>Cut rescue time from hours to minutes.</p>
-            <strong>Up to 70% faster</strong>
+            <CountUp end={70} suffix="%" /> faster
           </div>
           <div className="impact-card">
             <h3>🌍 Wider Reach</h3>
             <p>Connects even in areas with zero cell coverage.</p>
-            <strong>100% global coverage</strong>
+            <CountUp end={100} suffix="%" /> global coverage
           </div>
           <div className="impact-card">
             <h3>💸 Affordable</h3>
             <p>Low-cost device accessible to vulnerable groups.</p>
-            <strong>10× cheaper than alternatives</strong>
+            <CountUp end={10} suffix="×" /> cheaper than alternatives
           </div>
           <div className="impact-card">
             <h3>💚 Sustainable</h3>
             <p>Made with recycled and eco-friendly materials.</p>
-            <strong>85% recycled materials</strong>
+            <CountUp end={85} suffix="%" /> recycled materials
           </div>
         </div>
       </section>
@@ -145,7 +220,11 @@ export default function Home() {
         <h2>Why Earthlive vs. Others</h2>
         <table>
           <thead>
-            <tr><th>Feature</th><th>Smartwatches / GPS Devices</th><th>Earthlive Bracelet</th></tr>
+            <tr>
+              <th>Feature</th>
+              <th>Smartwatches / GPS Devices</th>
+              <th>Earthlive Bracelet</th>
+            </tr>
           </thead>
           <tbody>
             <tr><td>Connectivity</td><td>Cellular/Wi-Fi (fails in disasters)</td><td>Direct-to-Satellite</td></tr>
@@ -172,7 +251,12 @@ export default function Home() {
         >
           {urls.map((url, idx) => (
             <div key={idx} className="news-card">
-              <Microlink url={url} media="image" size="normal" style={{ maxWidth: '320px', margin: '0 auto' }} />
+              <Microlink
+                url={url}
+                media="image"
+                size="normal"
+                style={{ maxWidth: '320px', margin: '0 auto' }}
+              />
             </div>
           ))}
         </Carousel>
