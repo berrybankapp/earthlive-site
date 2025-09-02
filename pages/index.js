@@ -48,22 +48,30 @@ function CountUp({ end, suffix = '', duration = 2000 }) {
 export default function Home() {
   const [scrolled, setScrolled] = useState(false)
 
-  // Handle navbar + CTA movement
+  // Handle navbar + CTA fade/slide transition
   useEffect(() => {
     const heroHeight = document.querySelector('.hero')?.offsetHeight || window.innerHeight
     const btn = document.getElementById('cta-button')
-    const navSlot = document.querySelector('.nav-btn-slot')
 
     const handleScroll = () => {
+      if (!btn) return
+
       if (window.scrollY > heroHeight * 0.6) {
-        if (btn && navSlot && !navSlot.contains(btn)) {
-          navSlot.appendChild(btn) // move into navbar
+        if (!btn.classList.contains('to-nav')) {
+          btn.classList.add('fading-out')
+          setTimeout(() => {
+            btn.classList.remove('fading-out')
+            btn.classList.add('to-nav')
+          }, 200)
         }
         setScrolled(true)
       } else {
-        const ctaContainer = document.querySelector('.cta-container')
-        if (btn && ctaContainer && !ctaContainer.contains(btn)) {
-          ctaContainer.appendChild(btn) // move back to hero
+        if (btn.classList.contains('to-nav')) {
+          btn.classList.add('fading-out')
+          setTimeout(() => {
+            btn.classList.remove('fading-out')
+            btn.classList.remove('to-nav')
+          }, 200)
         }
         setScrolled(false)
       }
@@ -180,23 +188,23 @@ export default function Home() {
         <h2>Use Cases</h2>
         <div className="use-grid">
           <div className="use-card">
-            <img src="/assets/usecase-disaster.jpg" alt="Natural Disasters"/>
+            <img src="/assets/usecase-disaster.png" alt="Natural Disasters"/>
             <p>Natural Disasters</p>
           </div>
           <div className="use-card">
-            <img src="/assets/usecase-tourism.jpg" alt="Tourism & Adventure Travel"/>
+            <img src="/assets/usecase-tourism.png" alt="Tourism & Adventure Travel"/>
             <p>Tourism & Adventure Travel</p>
           </div>
           <div className="use-card">
-            <img src="/assets/usecase-schools.jpg" alt="Schools & Summer Camps"/>
+            <img src="/assets/usecase-schools.png" alt="Schools & Summer Camps"/>
             <p>Schools & Summer Camps</p>
           </div>
           <div className="use-card">
-            <img src="/assets/usecase-aid.jpg" alt="Humanitarian Aid"/>
+            <img src="/assets/usecase-aid.png" alt="Humanitarian Aid"/>
             <p>Humanitarian Aid</p>
           </div>
           <div className="use-card">
-            <img src="/assets/usecase-events.jpg" alt="Events & Future Uses"/>
+            <img src="/assets/usecase-events.png" alt="Events & Future Uses"/>
             <p>Events & Future Uses</p>
           </div>
         </div>
