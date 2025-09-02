@@ -6,6 +6,7 @@ body {
   color: #333;
   line-height: 1.6;
   text-align: center;
+  overflow-y: auto !important; /* prevent scroll lock */
 }
 h1, h2, h3, .logo {
   font-family: 'Poppins', sans-serif;
@@ -78,13 +79,15 @@ html, body {
   padding: .75em 2em;
   z-index: 1000;
   transition: background .4s ease, color .4s ease, opacity .4s ease;
+  box-sizing: border-box;
 }
 .nav-btn-slot {
-  width: auto;
   display: flex;
   justify-content: flex-end;
   align-items: center;
   padding-left: 1em;
+  padding-right: 1em; /* NEW: prevent cutoff */
+  flex: 0 0 auto;
 }
 .navbar.top { background: transparent; }
 .navbar.top .logo { color: white; }
@@ -108,8 +111,8 @@ html, body {
 .hero {
   position: relative;
   width: 100%;
-  min-height: 100vh;
-  padding: clamp(3em,6vw,8em) 1.5em;
+  height: 100vh; /* exact viewport height */
+  padding: 5em 1.5em 3em;
   color: white;
   background: url('/assets/hero.png') no-repeat center center/cover;
   display: flex; flex-direction: column;
@@ -141,11 +144,11 @@ html, body {
   margin: 0 auto 1.2em;
   opacity: .98;
 }
-/* Mobile tweak: shrink hero height instead of black bars */
+/* Mobile tweak */
 @media(max-width:600px){
   .hero {
-    min-height: 70vh; /* shrink height */
-    padding: 2em 1em;
+    height: 85vh;          /* shorter, avoids black bars */
+    padding: 4em 1em 2em;  /* less padding */
     background-size: cover;
   }
 }
@@ -229,7 +232,7 @@ section {
 /* Comparison */
 .comparison {
   overflow-x: auto;
-  padding: 0 1em;
+  padding: 0 1em; /* adds symmetry */
 }
 .comparison table {
   width: 100%;
