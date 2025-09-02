@@ -117,11 +117,11 @@ export default function Home() {
       <section className="use-cases teal-bg">
         <h2>Use Cases</h2>
         <div className="use-grid">
-          <div className="use-card"><img src="/assets/usecase-disaster.jpg" alt="Natural Disasters"/><p>Natural Disasters</p></div>
-          <div className="use-card"><img src="/assets/usecase-tourism.jpg" alt="Tourism & Adventure Travel"/><p>Tourism & Adventure Travel</p></div>
-          <div className="use-card"><img src="/assets/usecase-schools.jpg" alt="Schools & Summer Camps"/><p>Schools & Summer Camps</p></div>
-          <div className="use-card"><img src="/assets/usecase-aid.jpg" alt="Humanitarian Aid"/><p>Humanitarian Aid</p></div>
-          <div className="use-card"><img src="/assets/usecase-events.jpg" alt="Events & Future Uses"/><p>Events & Future Uses</p></div>
+          <div className="use-card"><img src="/assets/usecase-disaster.png" alt="Natural Disasters"/><p>Natural Disasters</p></div>
+          <div className="use-card"><img src="/assets/usecase-tourism.png" alt="Tourism & Adventure Travel"/><p>Tourism & Adventure Travel</p></div>
+          <div className="use-card"><img src="/assets/usecase-schools.png" alt="Schools & Summer Camps"/><p>Schools & Summer Camps</p></div>
+          <div className="use-card"><img src="/assets/usecase-aid.png" alt="Humanitarian Aid"/><p>Humanitarian Aid</p></div>
+          <div className="use-card"><img src="/assets/usecase-events.png" alt="Events & Future Uses"/><p>Events & Future Uses</p></div>
         </div>
       </section>
 
