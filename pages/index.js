@@ -117,11 +117,11 @@ export default function Home() {
       <section className="use-cases teal-bg">
         <h2>Use Cases</h2>
         <div className="use-grid">
-          <div className="use-card"><img src="/assets/usecase-disaster.jpg"/><p>Natural Disasters</p></div>
-          <div className="use-card"><img src="/assets/usecase-tourism.jpg"/><p>Tourism & Adventure Travel</p></div>
-          <div className="use-card"><img src="/assets/usecase-schools.jpg"/><p>Schools & Summer Camps</p></div>
-          <div className="use-card"><img src="/assets/usecase-aid.jpg"/><p>Humanitarian Aid</p></div>
-          <div className="use-card"><img src="/assets/usecase-events.jpg"/><p>Events & Future Uses</p></div>
+          <div className="use-card"><img src="/assets/usecase-disaster.png"/><p>Natural Disasters</p></div>
+          <div className="use-card"><img src="/assets/usecase-tourism.png"/><p>Tourism & Adventure Travel</p></div>
+          <div className="use-card"><img src="/assets/usecase-schools.png"/><p>Schools & Summer Camps</p></div>
+          <div className="use-card"><img src="/assets/usecase-aid.png"/><p>Humanitarian Aid</p></div>
+          <div className="use-card"><img src="/assets/usecase-events.png"/><p>Events & Future Uses</p></div>
         </div>
       </section>
 
@@ -132,18 +132,22 @@ export default function Home() {
           <div className="impact-card">
             <h3>⏱ Faster Response</h3>
             <p>Cut rescue time from hours to minutes.</p>
+            <strong>Up to 70% faster</strong>
           </div>
           <div className="impact-card">
             <h3>🌍 Wider Reach</h3>
             <p>Connects even in areas with zero cell coverage.</p>
+            <strong>100% global coverage</strong>
           </div>
           <div className="impact-card">
             <h3>💸 Affordable</h3>
             <p>Low-cost device accessible to vulnerable groups.</p>
+            <strong>10× cheaper than alternatives</strong>
           </div>
           <div className="impact-card">
             <h3>💚 Sustainable</h3>
             <p>Made with recycled and eco-friendly materials.</p>
+            <strong>85% recycled materials</strong>
           </div>
         </div>
       </section>
@@ -188,7 +192,13 @@ export default function Home() {
 
       {/* Footer */}
       <footer className="footer animate-on-scroll">
-        <a href="mailto:egomezjackson@gmail.com" className="btn secondary">Contact Us</a>
+        <a 
+          href="https://docs.google.com/forms/d/e/1FAIpQLSfjSiDoSVVpTVQTpgmicn-b3EK83gdJEMI7zUkUcwNabya_GA/viewform?usp=header" 
+          target="_blank" 
+          className="btn secondary"
+        >
+          Contact Us
+        </a>
         <p>© Earthlive 2025</p>
       </footer>
     </div>
