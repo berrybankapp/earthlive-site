@@ -7,7 +7,6 @@ import 'react-multi-carousel/lib/styles.css'
 // Easing function for smooth CountUp
 const easeOutCubic = (t) => 1 - Math.pow(1 - t, 3)
 
-// CountUp component with easing + comma formatting
 function CountUp({ end, suffix = '', duration = 2000 }) {
   const [count, setCount] = useState(0)
   const ref = useRef()
@@ -37,40 +36,35 @@ function CountUp({ end, suffix = '', duration = 2000 }) {
     return () => observer.disconnect()
   }, [end, duration])
 
-  return (
-    <strong ref={ref}>
-      {count.toLocaleString()}
-      {suffix}
-    </strong>
-  )
+  return <strong ref={ref}>{count.toLocaleString()}{suffix}</strong>
 }
 
 export default function Home() {
   const [scrolled, setScrolled] = useState(false)
 
-  // Handle navbar + CTA fade/slide transition
   useEffect(() => {
     const heroHeight = document.querySelector('.hero')?.offsetHeight || window.innerHeight
     const btn = document.getElementById('cta-button')
+    const navSlot = document.querySelector('.nav-btn-slot')
+    const ctaContainer = document.querySelector('.cta-container')
 
     const handleScroll = () => {
       if (!btn) return
-
       if (window.scrollY > heroHeight * 0.6) {
-        if (!btn.classList.contains('to-nav')) {
+        if (navSlot && !navSlot.contains(btn)) {
           btn.classList.add('fading-out')
           setTimeout(() => {
             btn.classList.remove('fading-out')
-            btn.classList.add('to-nav')
+            navSlot.appendChild(btn)
           }, 200)
         }
         setScrolled(true)
       } else {
-        if (btn.classList.contains('to-nav')) {
+        if (ctaContainer && !ctaContainer.contains(btn)) {
           btn.classList.add('fading-out')
           setTimeout(() => {
             btn.classList.remove('fading-out')
-            btn.classList.remove('to-nav')
+            ctaContainer.appendChild(btn)
           }, 200)
         }
         setScrolled(false)
@@ -93,11 +87,9 @@ export default function Home() {
       },
       { threshold: 0.2 }
     )
-
     document.querySelectorAll('.animate-on-scroll').forEach((el) => {
       observer.observe(el)
     })
-
     return () => observer.disconnect()
   }, [])
 
@@ -134,10 +126,7 @@ export default function Home() {
       {/* Hero */}
       <header className="hero">
         <h1>Locate. Identify. Save Lives.</h1>
-        <p>
-          Earthlive is a disaster-response bracelet that connects victims with emergency responders —
-          even when all networks fail.
-        </p>
+        <p>Earthlive is a disaster-response bracelet that connects victims with emergency responders — even when all networks fail.</p>
         <div className="cta-container">
           <a
             id="cta-button"
@@ -154,11 +143,7 @@ export default function Home() {
       <section className="problem white-bg split">
         <div className="split-text animate-on-scroll animate-left">
           <h2>The Problem</h2>
-          <p>
-            Every year, millions go missing in natural disasters.
-            Phones, apps, and radios often fail when power lines are down and infrastructure is destroyed.
-            Rescue teams lose valuable time — and people lose their lives.
-          </p>
+          <p>Every year, millions go missing in natural disasters. Phones, apps, and radios often fail when power lines are down and infrastructure is destroyed. Rescue teams lose valuable time — and people lose their lives.</p>
         </div>
         <div className="split-image animate-on-scroll animate-right">
           <img src="/assets/disaster.jpg" alt="Disaster scene" />
@@ -187,26 +172,11 @@ export default function Home() {
       <section className="use-cases teal-bg">
         <h2>Use Cases</h2>
         <div className="use-grid">
-          <div className="use-card">
-            <img src="/assets/usecase-disaster.png" alt="Natural Disasters"/>
-            <p>Natural Disasters</p>
-          </div>
-          <div className="use-card">
-            <img src="/assets/usecase-tourism.png" alt="Tourism & Adventure Travel"/>
-            <p>Tourism & Adventure Travel</p>
-          </div>
-          <div className="use-card">
-            <img src="/assets/usecase-schools.png" alt="Schools & Summer Camps"/>
-            <p>Schools & Summer Camps</p>
-          </div>
-          <div className="use-card">
-            <img src="/assets/usecase-aid.png" alt="Humanitarian Aid"/>
-            <p>Humanitarian Aid</p>
-          </div>
-          <div className="use-card">
-            <img src="/assets/usecase-events.png" alt="Events & Future Uses"/>
-            <p>Events & Future Uses</p>
-          </div>
+          <div className="use-card"><img src="/assets/usecase-disaster.png" alt="Natural Disasters"/><p>Natural Disasters</p></div>
+          <div className="use-card"><img src="/assets/usecase-tourism.png" alt="Tourism & Adventure Travel"/><p>Tourism & Adventure Travel</p></div>
+          <div className="use-card"><img src="/assets/usecase-schools.png" alt="Schools & Summer Camps"/><p>Schools & Summer Camps</p></div>
+          <div className="use-card"><img src="/assets/usecase-aid.png" alt="Humanitarian Aid"/><p>Humanitarian Aid</p></div>
+          <div className="use-card"><img src="/assets/usecase-events.png" alt="Events & Future Uses"/><p>Events & Future Uses</p></div>
         </div>
       </section>
 
@@ -214,26 +184,10 @@ export default function Home() {
       <section className="impact gray-bg animate-on-scroll">
         <h2>Impact of Wearing Earthlive</h2>
         <div className="impact-grid">
-          <div className="impact-card">
-            <h3>⏱ Faster Response</h3>
-            <p>Cut rescue time from hours to minutes.</p>
-            <CountUp end={70} suffix="%" /> faster
-          </div>
-          <div className="impact-card">
-            <h3>🌍 Wider Reach</h3>
-            <p>Connects even in areas with zero cell coverage.</p>
-            <CountUp end={100} suffix="%" /> global coverage
-          </div>
-          <div className="impact-card">
-            <h3>💸 Affordable</h3>
-            <p>Low-cost device accessible to vulnerable groups.</p>
-            <CountUp end={10} suffix="×" /> cheaper than alternatives
-          </div>
-          <div className="impact-card">
-            <h3>💚 Sustainable</h3>
-            <p>Made with recycled and eco-friendly materials.</p>
-            <CountUp end={85} suffix="%" /> recycled materials
-          </div>
+          <div className="impact-card"><h3>⏱ Faster Response</h3><p>Cut rescue time from hours to minutes.</p><CountUp end={70} suffix="%" /> faster</div>
+          <div className="impact-card"><h3>🌍 Wider Reach</h3><p>Connects even in areas with zero cell coverage.</p><CountUp end={100} suffix="%" /> global coverage</div>
+          <div className="impact-card"><h3>💸 Affordable</h3><p>Low-cost device accessible to vulnerable groups.</p><CountUp end={10} suffix="×" /> cheaper than alternatives</div>
+          <div className="impact-card"><h3>💚 Sustainable</h3><p>Made with recycled and eco-friendly materials.</p><CountUp end={85} suffix="%" /> recycled materials</div>
         </div>
       </section>
 
@@ -241,13 +195,7 @@ export default function Home() {
       <section className="comparison white-bg animate-on-scroll">
         <h2>Why Earthlive vs. Others</h2>
         <table>
-          <thead>
-            <tr>
-              <th>Feature</th>
-              <th>Smartwatches / GPS Devices</th>
-              <th>Earthlive Bracelet</th>
-            </tr>
-          </thead>
+          <thead><tr><th>Feature</th><th>Smartwatches / GPS Devices</th><th>Earthlive Bracelet</th></tr></thead>
           <tbody>
             <tr><td>Connectivity</td><td>Cellular/Wi-Fi (fails in disasters)</td><td>Direct-to-Satellite</td></tr>
             <tr><td>Cost</td><td>$350 unit + $8.99/month</td><td>$25 unit + $2.99/month</td></tr>
@@ -261,24 +209,13 @@ export default function Home() {
       {/* News */}
       <section className="news teal-bg animate-on-scroll">
         <h2>News & Media</h2>
-        <Carousel
-          responsive={responsive}
-          autoPlay={true}
-          autoPlaySpeed={5000}
-          infinite={true}
-          showDots={true}
-          arrows={true}
+        <Carousel responsive={responsive} autoPlay autoPlaySpeed={5000} infinite showDots arrows
           customLeftArrow={<button className="arrow left">‹</button>}
           customRightArrow={<button className="arrow right">›</button>}
         >
           {urls.map((url, idx) => (
             <div key={idx} className="news-card">
-              <Microlink
-                url={url}
-                media="image"
-                size="normal"
-                style={{ maxWidth: '320px', margin: '0 auto' }}
-              />
+              <Microlink url={url} media="image" size="normal" style={{ maxWidth: '320px', margin: '0 auto' }} />
             </div>
           ))}
         </Carousel>
@@ -286,13 +223,7 @@ export default function Home() {
 
       {/* Footer */}
       <footer className="footer animate-on-scroll">
-        <a
-          href="https://docs.google.com/forms/d/e/1FAIpQLSfjSiDoSVVpTVQTpgmicn-b3EK83gdJEMI7zUkUcwNabya_GA/viewform?usp=header"
-          target="_blank"
-          className="btn secondary"
-        >
-          Contact Us
-        </a>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSfjSiDoSVVpTVQTpgmicn-b3EK83gdJEMI7zUkUcwNabya_GA/viewform?usp=header" target="_blank" className="btn secondary">Contact Us</a>
         <p>© Earthlive 2025</p>
       </footer>
     </div>
