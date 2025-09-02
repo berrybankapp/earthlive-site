@@ -4,7 +4,10 @@ import Microlink from '@microlink/react'
 import Carousel from 'react-multi-carousel'
 import 'react-multi-carousel/lib/styles.css'
 
-// CountUp component with comma formatting
+// Easing function for smooth CountUp
+const easeOutCubic = (t) => 1 - Math.pow(1 - t, 3)
+
+// CountUp component with easing + comma formatting
 function CountUp({ end, suffix = '', duration = 2000 }) {
   const [count, setCount] = useState(0)
   const ref = useRef()
@@ -20,7 +23,8 @@ function CountUp({ end, suffix = '', duration = 2000 }) {
             const step = (timestamp) => {
               if (!startTime) startTime = timestamp
               const progress = Math.min((timestamp - startTime) / duration, 1)
-              setCount(Math.floor(progress * end))
+              const eased = easeOutCubic(progress)
+              setCount(Math.floor(eased * end))
               if (progress < 1) requestAnimationFrame(step)
             }
             requestAnimationFrame(step)
@@ -44,17 +48,27 @@ function CountUp({ end, suffix = '', duration = 2000 }) {
 export default function Home() {
   const [scrolled, setScrolled] = useState(false)
 
+  // Handle navbar + CTA movement
   useEffect(() => {
+    const heroHeight = document.querySelector('.hero')?.offsetHeight || window.innerHeight
+    const btn = document.getElementById('cta-button')
+    const navSlot = document.querySelector('.nav-btn-slot')
+
     const handleScroll = () => {
-      const heroHeight = document.querySelector('.hero')?.offsetHeight || window.innerHeight
-      const btn = document.getElementById('cta-button')
       if (window.scrollY > heroHeight * 0.6) {
-        btn?.classList.add('to-nav')
+        if (btn && navSlot && !navSlot.contains(btn)) {
+          navSlot.appendChild(btn) // move into navbar
+        }
+        setScrolled(true)
       } else {
-        btn?.classList.remove('to-nav')
+        const ctaContainer = document.querySelector('.cta-container')
+        if (btn && ctaContainer && !ctaContainer.contains(btn)) {
+          ctaContainer.appendChild(btn) // move back to hero
+        }
+        setScrolled(false)
       }
-      setScrolled(window.scrollY > heroHeight * 0.6)
     }
+
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
@@ -166,23 +180,23 @@ export default function Home() {
         <h2>Use Cases</h2>
         <div className="use-grid">
           <div className="use-card">
-            <img src="/assets/usecase-disaster.png" alt="Natural Disasters"/>
+            <img src="/assets/usecase-disaster.jpg" alt="Natural Disasters"/>
             <p>Natural Disasters</p>
           </div>
           <div className="use-card">
-            <img src="/assets/usecase-tourism.png" alt="Tourism & Adventure Travel"/>
+            <img src="/assets/usecase-tourism.jpg" alt="Tourism & Adventure Travel"/>
             <p>Tourism & Adventure Travel</p>
           </div>
           <div className="use-card">
-            <img src="/assets/usecase-schools.png" alt="Schools & Summer Camps"/>
+            <img src="/assets/usecase-schools.jpg" alt="Schools & Summer Camps"/>
             <p>Schools & Summer Camps</p>
           </div>
           <div className="use-card">
-            <img src="/assets/usecase-aid.png" alt="Humanitarian Aid"/>
+            <img src="/assets/usecase-aid.jpg" alt="Humanitarian Aid"/>
             <p>Humanitarian Aid</p>
           </div>
           <div className="use-card">
-            <img src="/assets/usecase-events.png" alt="Events & Future Uses"/>
+            <img src="/assets/usecase-events.jpg" alt="Events & Future Uses"/>
             <p>Events & Future Uses</p>
           </div>
         </div>
