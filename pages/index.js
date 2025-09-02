@@ -10,25 +10,16 @@ export default function Home() {
   useEffect(() => {
     const handleScroll = () => {
       const heroHeight = document.querySelector('.hero')?.offsetHeight || window.innerHeight
+      const btn = document.getElementById('cta-button')
+      if (window.scrollY > heroHeight * 0.6) {
+        btn?.classList.add('to-nav')
+      } else {
+        btn?.classList.remove('to-nav')
+      }
       setScrolled(window.scrollY > heroHeight * 0.6)
     }
     window.addEventListener('scroll', handleScroll)
-
-    const io = new IntersectionObserver((entries, observer) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('in-view')
-          observer.unobserve(entry.target)
-        }
-      })
-    }, { threshold: 0.2 })
-
-    document.querySelectorAll('.animate-on-scroll').forEach(el => io.observe(el))
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll)
-      io.disconnect()
-    }
+    return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
   const urls = [
@@ -61,19 +52,16 @@ export default function Home() {
         <div className="nav-btn-slot"></div>
       </nav>
 
-      {/* Hero Section (background set via CSS) */}
+      {/* Hero */}
       <header className="hero">
         <h1>Locate. Identify. Save Lives.</h1>
-        <p>
-          Earthlive is a disaster-response bracelet that connects victims with emergency responders —
-          even when all networks fail.
-        </p>
+        <p>Earthlive is a disaster-response bracelet that connects victims with emergency responders — even when all networks fail.</p>
         <div className="cta-container">
           <a
             id="cta-button"
             href="https://docs.google.com/forms/d/e/1FAIpQLSe56sOJqEZ1Rsglvq-2d92EmjPbdfxenOXitxruiGu0ojKzIA/viewform?usp=header"
             target="_blank"
-            className={`btn primary ${scrolled ? 'to-nav' : ''}`}
+            className="btn primary"
           >
             Pre-Order
           </a>
@@ -117,11 +105,11 @@ export default function Home() {
       <section className="use-cases teal-bg">
         <h2>Use Cases</h2>
         <div className="use-grid">
-          <div className="use-card"><img src="/assets/usecase-disaster.png" alt="Natural Disasters"/><p>Natural Disasters</p></div>
-          <div className="use-card"><img src="/assets/usecase-tourism.png" alt="Tourism & Adventure Travel"/><p>Tourism & Adventure Travel</p></div>
-          <div className="use-card"><img src="/assets/usecase-schools.png" alt="Schools & Summer Camps"/><p>Schools & Summer Camps</p></div>
-          <div className="use-card"><img src="/assets/usecase-aid.png" alt="Humanitarian Aid"/><p>Humanitarian Aid</p></div>
-          <div className="use-card"><img src="/assets/usecase-events.png" alt="Events & Future Uses"/><p>Events & Future Uses</p></div>
+          <div className="use-card"><img src="/assets/usecase-disaster.jpg" alt="Natural Disasters"/><p>Natural Disasters</p></div>
+          <div className="use-card"><img src="/assets/usecase-tourism.jpg" alt="Tourism & Adventure Travel"/><p>Tourism & Adventure Travel</p></div>
+          <div className="use-card"><img src="/assets/usecase-schools.jpg" alt="Schools & Summer Camps"/><p>Schools & Summer Camps</p></div>
+          <div className="use-card"><img src="/assets/usecase-aid.jpg" alt="Humanitarian Aid"/><p>Humanitarian Aid</p></div>
+          <div className="use-card"><img src="/assets/usecase-events.jpg" alt="Events & Future Uses"/><p>Events & Future Uses</p></div>
         </div>
       </section>
 
