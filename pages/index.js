@@ -148,14 +148,9 @@ export default function Home() {
         </div>
       </header>
 
-        {/* Reserve Bracelet Section */}
-        <section className="reserve-section white-bg split animate-on-scroll" id="reserve" style={{color: '#333'}}>
-          <div className="split-image animate-zoom">
-            <img src="/assets/bracelet.png" alt="Reserve Earthlive Bracelet" onError={e => {e.target.style.display='none'}} />
-            {/* If image missing, show fallback */}
-            <noscript style={{color: '#333'}}>Bracelet image coming soon</noscript>
-          </div>
-          <div className="split-text animate-right">
+      {/* Reserve Bracelet Section */}
+        <section className="reserve-section white-bg split">
+          <div className="split-text animate-on-scroll animate-left">
             <h2>Reserve Your Earthlive Bracelet</h2>
             <p>Secure your Earthlive bracelet now and be among the first to receive it when it launches. Limited quantities available!</p>
             <a
@@ -167,6 +162,9 @@ export default function Home() {
             >
               Reserve Now
             </a>
+          </div>
+          <div className="split-image animate-on-scroll animate-right">
+            <img src="/assets/bracelet.png" alt="Reserve Earthlive Bracelet" />
           </div>
         </section>
       {/* Problem */}
