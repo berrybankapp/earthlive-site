@@ -149,8 +149,8 @@ export default function Home() {
       </header>
 
       {/* Reserve Bracelet Section */}
-        <section className="reserve-section white-bg split">
-          <div className="split-text animate-on-scroll animate-left">
+        <section className="reserve-section white-bg animate-on-scroll" style={{textAlign: 'center', padding: '5em 2em'}}>
+          <div className="reserve-text" style={{margin: '0 auto', maxWidth: '600px'}}>
             <h2>Reserve Your Earthlive Bracelet</h2>
             <p>Secure your Earthlive bracelet now and be among the first to receive it when it launches. Limited quantities available!</p>
             <a
@@ -163,8 +163,8 @@ export default function Home() {
               Reserve Now
             </a>
           </div>
-          <div className="split-image animate-on-scroll animate-right">
-            <img src="/assets/bracelet.png" alt="Reserve Earthlive Bracelet" />
+          <div className="reserve-image" style={{marginTop: '2em'}}>
+            <img src="/assets/reserve.png" alt="Reserve Earthlive Bracelet" style={{maxWidth: '340px', width: '100%', borderRadius: '12px', boxShadow: '0 4px 12px rgba(0,0,0,.08)'}} />
           </div>
         </section>
       {/* Problem */}
