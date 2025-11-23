@@ -148,6 +148,25 @@ export default function Home() {
         </div>
       </header>
 
+        {/* Reserve Bracelet Section */}
+        <section className="reserve-section teal-bg split animate-on-scroll" id="reserve">
+          <div className="split-image animate-zoom">
+            <img src="/assets/bracelet.png" alt="Reserve Earthlive Bracelet" />
+          </div>
+          <div className="split-text animate-right">
+            <h2>Reserve Your Earthlive Bracelet</h2>
+            <p>Secure your Earthlive bracelet now and be among the first to receive it when it launches. Limited quantities available!</p>
+            <a
+              href="https://buy.stripe.com/14A6oGgJu4aY0tmg60cbC00"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn primary"
+              style={{fontSize: '1.1em', marginTop: '1em'}}
+            >
+              Reserve Now
+            </a>
+          </div>
+        </section>
       {/* Problem */}
       <section className="problem white-bg split">
         <div className="split-text animate-on-scroll animate-left">
@@ -207,7 +226,7 @@ export default function Home() {
           <thead><tr><th>Feature</th><th>Smartwatches / GPS Devices</th><th>Earthlive Bracelet</th></tr></thead>
           <tbody>
             <tr><td>Connectivity</td><td>Cellular/Wi-Fi (fails in disasters)</td><td>Direct-to-Satellite</td></tr>
-            <tr><td>Cost</td><td>$350 unit + $8.99/month</td><td>$25 unit + $2.99/month</td></tr>
+            <tr><td>Cost</td><td>$350 unit + $8.99/month</td><td>$8.99/month</td></tr>
             <tr><td>Purpose</td><td>Tourism, fitness</td><td>Disaster survival & equity</td></tr>
             <tr><td>Waterproof</td><td>Limited</td><td>✅ Yes</td></tr>
             <tr><td>Data Security</td><td>Mixed</td><td>End-to-end encrypted</td></tr>
