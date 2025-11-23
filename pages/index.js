@@ -121,6 +121,20 @@ export default function Home() {
       <nav className={`navbar ${scrolled ? 'scrolled' : 'top'}`}>
         <div className="logo">Earthlive</div>
         <div className="nav-btn-slot"></div>
+        {/* Reserve Bracelet Section */}
+        <section className="reserve-section white-bg animate-on-scroll" style={{padding: '4em 2em', textAlign: 'center'}}>
+          <h2>Reserve Your Earthlive Bracelet</h2>
+          <p>Secure your Earthlive bracelet now and be among the first to receive it when it launches. Limited quantities available!</p>
+          <a
+            href="https://buy.stripe.com/14A6oGgJu4aY0tmg60cbC00"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn primary"
+            style={{fontSize: '1.2em', marginTop: '1em'}}
+          >
+            Reserve Now
+          </a>
+        </section>
       </nav>
 
       {/* Hero */}
@@ -135,6 +149,15 @@ export default function Home() {
             className="btn primary"
           >
             Pre-Order
+          </a>
+          <a
+            href="https://buy.stripe.com/14A6oGgJu4aY0tmg60cbC00"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn secondary"
+            style={{marginLeft: '1em'}}
+          >
+            Reserve Now
           </a>
         </div>
       </header>
