@@ -149,9 +149,11 @@ export default function Home() {
       </header>
 
         {/* Reserve Bracelet Section */}
-        <section className="reserve-section teal-bg split animate-on-scroll" id="reserve">
+        <section className="reserve-section white-bg split animate-on-scroll" id="reserve" style={{color: '#333'}}>
           <div className="split-image animate-zoom">
-            <img src="/assets/bracelet.png" alt="Reserve Earthlive Bracelet" />
+            <img src="/assets/bracelet.png" alt="Reserve Earthlive Bracelet" onError={e => {e.target.style.display='none'}} />
+            {/* If image missing, show fallback */}
+            <noscript style={{color: '#333'}}>Bracelet image coming soon</noscript>
           </div>
           <div className="split-text animate-right">
             <h2>Reserve Your Earthlive Bracelet</h2>
